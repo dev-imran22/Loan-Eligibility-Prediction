@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Eligibility Prediction</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body style="background-color:lightgrey;">
+    <div class="login">
+        <center>
+            <font="bold">
+                <h1>LOAN ELIGIBILITY PREDICTION</h1>
+                </font>
+                <img src="https://www.adarshdevelopers.com/blog/wp-content/uploads/2020/12/5-Ways-to-Improve-Your-Loan-Eligibility-1024x684.jpg"
+                    height="300" width="500">
+                <br>
+                <!-- Main Input For Receiving Query to our ML -->
+                <form action="{{ url_for('predict')}}" method="post">
+                    <h3>Applicant Income(Yearly)
+                        <br>
+                        <input type="text" name="Applicant Income" placeholder="" required="required" />
+                        <br><br>
+                        Co-applicant Income(Yearly)
+                        <br>
+                        <input type="text" name="Co-applicant Income" placeholder="" required="required" />
+                        <br><br>
+                        Loan Amount
+                        <br>
+                        <input type="text" name="Loan Amount" placeholder="" required="required" />
+                        <br><br>
+                        Repayment Term(in months)
+                        <br>
+                        <input type="text" name="Repayment Term" placeholder="" required="required" />
+                        <br><br>
+                        Do you have better credit history?
+                        <br>
+                        <select name="history" id="history">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                        <br><br>
+                        Gender
+                        <br>
+                        <select name="gender" id="gender">
+                            <option value="0">Female</option>
+                            <option value="1">Male</option>
+                        </select>
+                        <br><br>
+                        Are you graduated?
+                        <br>
+                        <select name="grad" id="grad">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                        <br><br>
+                        Marital Status
+                        <br>
+                        <select name="marriage" id="marriage">
+                            <option value="0">Single</option>
+                            <option value="1">Married</option>
+                        </select>
+                        <br><br>
+                        Are you self employeed?
+                        <br>
+                        <select name="self_emp" id="self_emp">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                        <br><br>
+                        Number of dependents
+                        <br>
+                        <input type="text" name="Number of dependents" placeholder="" required="required" />
+                        <br><br>
+                        Property Area
+                        <br>
+                        <select name="area" id="area">
+                            <option value="3">Urban</option>
+                            <option value="2">Semi Urban</option>
+                            <option value="1">Rural</option>
+                        </select>
+                        <br><br>
+                        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                </form>
+                </h3>
+
+                <br>
+                <br>
+                <h1>
+                    <font="bold">
+                        {{ prediction_text }}
+                        </font>
+                </h1>
+        </center>
+
+    </div>
+
+
+</body>
+
+</html>
